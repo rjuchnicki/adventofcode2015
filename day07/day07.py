@@ -12,24 +12,24 @@ for i in instructions:
 
 @functools.lru_cache()
 def evaluate(reg):
-	try:
-		return int(reg)
-	except ValueError:
-		pass
+    try:
+        return int(reg)
+    except ValueError:
+        pass
 
-	cmd = circuit[reg].split(' ')
-	if 'NOT' in cmd:
-		return ~evaluate(cmd[1])
-	elif 'AND' in cmd:
-		return evaluate(cmd[0]) & evaluate(cmd[2])
-	elif 'OR' in cmd:
-		return evaluate(cmd[0]) | evaluate(cmd[2])
-	elif 'LSHIFT' in cmd:
-		return evaluate(cmd[0]) << evaluate(cmd[2])
-	elif 'RSHIFT' in cmd:
-		return evaluate(cmd[0]) >> evaluate(cmd[2])
-	else:
-		return evaluate(cmd[0])
+    cmd = circuit[reg].split(' ')
+    if 'NOT' in cmd:
+        return ~evaluate(cmd[1])
+    elif 'AND' in cmd:
+        return evaluate(cmd[0]) & evaluate(cmd[2])
+    elif 'OR' in cmd:
+       return evaluate(cmd[0]) | evaluate(cmd[2])
+    elif 'LSHIFT' in cmd:
+        return evaluate(cmd[0]) << evaluate(cmd[2])
+    elif 'RSHIFT' in cmd:
+        return evaluate(cmd[0]) >> evaluate(cmd[2])
+    else:
+        return evaluate(cmd[0])
 
 print('Part 1')
 a = str(evaluate('a'))

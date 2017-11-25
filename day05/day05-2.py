@@ -6,9 +6,9 @@ f.close()
 
 nice = 0
 for s in inputs:
-	repeated_pair = bool(re.search(r"(\w\w).*\1", s))
-	sandwich_letter = bool(re.search(r"(\w)\w\1", s))
-	if repeated_pair and sandwich_letter:
-		nice += 1
+    repeated_pair = bool(re.search(r"(\w\w).*\1", s))
+    sandwich_letter = bool(re.search(r"(\w)\w\1", s))
+    if repeated_pair and sandwich_letter:
+    	nice += 1
 
 print(nice)
